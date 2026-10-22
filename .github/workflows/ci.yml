@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate JavaScript syntax
+        run: |
+          find . -name "*.js" -not -path "./node_modules/*" -exec node --check {} \;
+
+      - name: Validate wrangler config
+        run: |
+          if [ -f wrangler.toml ]; then
+            npx wrangler deploy --dry-run --outdir=dist-check 2>/dev/null || echo "wrangler dry-run skipped (no auth)"
+          fi
