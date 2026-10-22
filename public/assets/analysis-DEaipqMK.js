@@ -1,0 +1,1 @@
+import{a8 as t}from"./index-CJlaQYRY.js";function e(a){return t.get("/analysis/echarts",{params:{timeZone:a}})}function n(a){return t.get("/analysis/ops",{params:{timeZone:a}})}function r(){return t.get("/backup/list")}function c(){return t.post("/backup/create")}function o(a){return t.post(`/backup/restore/${encodeURIComponent(a)}`)}export{o as a,c as b,r as c,e as d,n as e};

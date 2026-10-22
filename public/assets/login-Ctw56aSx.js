@@ -1,0 +1,1 @@
+import{a8 as o}from"./index-CJlaQYRY.js";function n(t,r){return o.post("/login",{email:t,password:r})}function s(){return o.delete("/logout")}function i(t){return o.post("/register",t)}export{n as a,s as l,i as r};
